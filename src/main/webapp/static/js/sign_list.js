@@ -55,7 +55,7 @@ $(function(){
 		resp.forEach(function(element, index) {
 			htmlString +=
 				'<li data-message='+ JSON.stringify(element.message) +' data-uploaduser='+ element.uploadUser +' data-fileId='+ element.fileId +' class="price-not-margin-right">'+
-				'	<div class="price-characteristic-img"><img onclick="" class="poi" src="'+path+'/static/images/demo.jpg" width="160" height="180" data-src2x="'+path+'/static/images/mul_controlX2-fee0b503e9.png"></div>'+
+				'	<div class="price-characteristic-img"><img onclick="showVideo(\''+element.dir+'\');" class="poi" src="'+path+'/static/images/demo.jpg" width="160" height="180" data-src2x="'+path+'/static/images/mul_controlX2-fee0b503e9.png"></div>'+
 				'	<div class="price-characteristic-info tc mt10"><b>'+ element.filename +'('+ element.mark +')</b>'+
 				'		<div class="tj fix"><a class="dianzan l default-color" href="">点赞&nbsp;(<span class="default-color">'+ element.klick +'</span>人赞过)</a><a class="r default-color openGuestbook" href="javascript:void(0)">留言</a></div>'+
 				'	</div>'+
