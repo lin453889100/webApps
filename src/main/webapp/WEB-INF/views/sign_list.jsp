@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="${root }/static/css/pc-bb3de3956e.css" media="screen and  (min-width:800px)">
 	<link rel="stylesheet" type="text/css" href="${root }/static/css/mobile-3c6540446f.css" media="screen and (max-width:800px)">
 	<link rel="stylesheet" href="${root }/static/css/base.css">
+        <link rel="stylesheet" href="${root }/static/css/plyr.css">
 	<!--[if lte IE 8]>
         <link  rel="stylesheet" type="text/css" href="css/ie8-42cfc30554.css">
     <![endif]-->
@@ -143,15 +144,15 @@
 		<div class="top-nav normal-width">
 			<a class="top-nav-logo" href=""></a>
 			<div class="top-hamburger"></div>
-			<div class="backBtn1"><a href="${root }/toUpload"  class="">Upload</a></div><br>
-			<div class="backBtn"><a href="${root }/login/logout"  class="">logout</a></div>
+			<div class="backBtn1"><a href="${root }/toUpload"  class="">去上传</a></div><br>
+			<div class="backBtn"><a href="${root }/login/logout"  class="">退出</a></div>
 		</div>
 		<div class="price-top tilt-component">
 			<div class="tilt-triangle tilt-triangle-bottom-left"></div>
 		</div>
 		<div class="price-characteristic normal-width">
 			<div id="safe" class="">
-				<div class="price-characteristic-title tc">Video List</div>
+				<div class="price-characteristic-title tc">视频列表</div>
 				<ul id="main-list">
 					<!-- 
 						JS each
@@ -169,24 +170,40 @@
 
 		<div id="commentBox" class="commentBox normal-width dn btd">
 			<div class="rel mt10">
-				<h2>Comments</h2>
+				<h2>评论区</h2>
 				<div class="main-comment">
 					<input id="comment-text" type="text">
-					<button id="sendComment">Post</button>
-					<button id="closeComment">Hide</button>
+					<button id="sendComment">发送评论</button>
+					<button id="closeComment">隐藏评论</button>
 				</div>
 			</div>
 			<ul id="comment-list" class="mt10">
-				<li>haha</li>
-				<li>nice</li>
+				<li>嘿嘿哈哈</li>
+				<li>并没有什么啊</li>
 			</ul>
 		</div>
 </body>
 <script src="${root }/static/js/sign_list.js"></script>
+<script src="${root }/static/js/plyr.js"></script>
+<script src="${root }/static/js/layer.js"></script>
 <script>
 	function logout(){
 		window.sessionStorage.removeItem("loginId");
 		window.location.href = '${root}/login/logout';
 	}
+        function showVideo(dir){
+            var names = dir.split(".");
+            var html = '<div class="player">';
+                html += '<video controls crossorigin><source src="' + dir +'" type="video/'+ names[1] +'"></video></div>';    
+            layer.open({
+                type: 1,
+                offset: 't',
+                title: '视频播放',
+                skin: 'layui-layer-rim', //加上边框
+                //area: ['900px', '600px'], //宽高
+                content: html
+            });
+            plyr.setup();
+        }
 </script>
 </html>
