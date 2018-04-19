@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.fastjson.JSONObject;
 
 import cn.lz.service.UploadService;
-import static org.apache.commons.lang3.StringUtils.lowerCase;
 
 @Controller
 public class UploadController {
@@ -42,33 +41,32 @@ public class UploadController {
 			String type = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));// 取文件格式后缀名
 			String real = file.getOriginalFilename().substring(0,file.getOriginalFilename().indexOf("."));//获取文件名称
 			String filename = real + "-" + System.currentTimeMillis() + type;// 获取文件名称+当前时间戳作为文件名
-			//String path = request.getSession().getServletContext().getRealPath("/upload/" + filename);// 存放在项目下
-			String lowerCase = System.getProperty("os.name").toLowerCase();
+			String path = request.getSession().getServletContext().getRealPath("/static/upload/");// 存放在项目下
+                        String path1 = request.getContextPath() + "/static/upload/";
+			/*int indexOf = System.getProperty("os.name").toLowerCase().indexOf("windows");
 			String path = null;
-			if(lowerCase.indexOf("windows") >= 0){
+			if(indexOf >= 0){
 				path ="C:/videoUpload/";//放在c盘
-			} else if(lowerCase.indexOf("linux") >= 0){
+			} else {
 				path = "/home/videoUpload/";
-			}
-                        else if(lowerCase.indexOf("mac") >= 0){
-				path = "/Users/videoUpload/";
-			}
+			}*/
+                        System.out.println(path);
 			File destFile = new File(path);
 			if (!destFile.exists()) {  
 				destFile.mkdirs();  
-            } 
+                        } 
 			path = path + filename;
 			try {
-				uploadService.addRecord(filename, path,loginId,tag);
+				uploadService.addRecord(filename, path1 + filename,loginId,tag);
 				// FileUtils.copyInputStreamToFile()这个方法里对IO进行了自动操作，不需要额外的再去关闭IO流
 				FileUtils.copyInputStreamToFile(file.getInputStream(), new File(path));// 复制临时文件到指定目录下
-				jsonObject.put("msg", "succeed！");
+				jsonObject.put("msg", "上传成功！");
 			} catch (IOException e) {
-				jsonObject.put("msg", "Failed！");
+				jsonObject.put("msg", "上传失败！");
 				e.printStackTrace();
 			}
 		} else {
-			jsonObject.put("msg", "Empty file！");
+			jsonObject.put("msg", "上传文件为空！");
 		}
 		return jsonObject;
 	}
