@@ -86,19 +86,19 @@
         },
         controls: ['restart', 'rewind', 'play', 'fast-forward', 'current-time', 'duration', 'mute', 'volume', /*'captions',*/ 'fullscreen'],
         i18n: {
-            restart: '重新播放',
-            rewind: '后退{seektime}秒',
-            play: '播放',
-            pause: '暂停',
-            forward: '快进{seektime}秒',
-            played: '播放中',
-            buffered: '缓冲中',
-            currentTime: '当前时间',
-            duration: '持续时间',
-            volume: '音量',
-            toggleMute: '静音',
-            toggleCaptions: '字幕',
-            toggleFullscreen: '全屏'
+            restart: 'restart',
+            rewind: 'rewind {seektime} sec',
+            play: 'play',
+            pause: 'pause',
+            forward: 'forward {seektime} sec',
+            played: 'played',
+            buffered: 'buffered',
+            currentTime: 'currentTime',
+            duration: 'duration',
+            volume: 'volume',
+            toggleMute: 'toggleMute',
+            toggleCaptions: 'toggleCaptions',
+            toggleFullscreen: 'toggleFullscreen'
         }
     };
 

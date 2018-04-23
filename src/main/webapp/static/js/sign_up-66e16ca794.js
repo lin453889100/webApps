@@ -4,43 +4,37 @@ function signUpValidate(e) {
 function checkSingUpEmail(e) {
     var n = $(".sign-up-email input").val().trim(),
     t = !1;
-    return e && 0 === n.length && (t = !0, $(".sign-up-email .normal-input-error-area").html("注册邮箱不得为空").parent().addClass("normal-input-error-area-show"), $(".sign-up-email input").focus()),
-    0 !== n.length && Rtool.checkMail(n) && (t = !0, $(".sign-up-email .normal-input-error-area").html("注册邮箱格式有误").parent().addClass("normal-input-error-area-show")),
+    return e && 0 === n.length && (t = !0, $(".sign-up-email .normal-input-error-area").html("Account is empty").parent().addClass("normal-input-error-area-show"), $(".sign-up-email input").focus()),
+    0 !== n.length && Rtool.checkMail(n) && (t = !0, $(".sign-up-email .normal-input-error-area").html("Incorrect format").parent().addClass("normal-input-error-area-show")),
     0 !== n.length && (t || $(".sign-up-email").removeClass("normal-input-error-area-show")),
     t
 }
 function checkPassword(e) {
     var n = $(".sign-up-password input").val().trim(),
     t = !1;
-    return e && 0 === n.length && (t = !0, $(".sign-up-password .normal-input-error-area").html("密码不得为空").parent().addClass("normal-input-error-area-show"), $(".sign-up-password input").focus()),
-    0 !== n.length && (n.length < 8 && (t = !0, $(".sign-up-password .normal-input-error-area").html("密码不得小于8位").parent().addClass("normal-input-error-area-show")), t || $(".sign-up-password").removeClass("normal-input-error-area-show")),
+    return e && 0 === n.length && (t = !0, $(".sign-up-password .normal-input-error-area").html("Password is required").parent().addClass("normal-input-error-area-show"), $(".sign-up-password input").focus()),
+    0 !== n.length && (n.length < 8 && (t = !0, $(".sign-up-password .normal-input-error-area").html("Password has to be 6 digits").parent().addClass("normal-input-error-area-show")), t || $(".sign-up-password").removeClass("normal-input-error-area-show")),
     t
 }
 function checkMobilePhone(e) {
     var n = $(".phone-number input").val().trim(),
     t = !1;
-    return e && 0 === n.length && (t = !0, $(".phone-number .normal-input-error-area").html("手机号不得为空").parent().addClass("normal-input-error-area-show"), $(".phone-number input").focus()),
-    0 !== n.length && Rtool.checkmobilephonenum(n) && (t = !0, $(".phone-number .normal-input-error-area").html("手机号格式有误").parent().addClass("normal-input-error-area-show")),
+    return e && 0 === n.length && (t = !0, $(".phone-number .normal-input-error-area").html("Phone number is empty").parent().addClass("normal-input-error-area-show"), $(".phone-number input").focus()),
+    0 !== n.length && Rtool.checkmobilephonenum(n) && (t = !0, $(".phone-number .normal-input-error-area").html("Incorrect format").parent().addClass("normal-input-error-area-show")),
     0 !== n.length && (t || $(".phone-number").removeClass("normal-input-error-area-show")),
     t
 }
 function checkVerificationCode(e) {
     var n = $(".sign-up-verification-code input").val().trim(),
     t = !1;
-    return e && (0 === n.length ? (t = !0, $(".sign-up-verification-code .normal-input-error-area").html("验证码不得为空").parent().addClass("normal-input-error-area-show"), $(".phone-number input").focus()) : $(".verification-code-success").hasClass("verification-code-success-show") || (t = !0, $(".sign-up-verification-code .normal-input-error-area").html("验证码无效").parent().addClass("normal-input-error-area-show"))),
+    return e && (0 === n.length ? (t = !0, $(".sign-up-verification-code .normal-input-error-area").html("Verification is required").parent().addClass("normal-input-error-area-show"), $(".phone-number input").focus()) : $(".verification-code-success").hasClass("verification-code-success-show") || (t = !0, $(".sign-up-verification-code .normal-input-error-area").html("验证码无效").parent().addClass("normal-input-error-area-show"))),
     0 !== n.length && (t || $(".sign-up-verification-code").removeClass("normal-input-error-area-show")),
     t
 }
-function checkCompanyName(e) {
-    var n = $(".sign-up-company input").val().trim(),
-    t = !1;
-    return e && 0 === n.length && (t = !0, $(".sign-up-company .normal-input-error-area").html("公司名不得为空").parent().addClass("normal-input-error-area-show"), $(".sign-up-company input").focus()),
-    0 !== n.length && (t || $(".sign-up-company").removeClass("normal-input-error-area-show")),
-    t
-}
+
 function checkVerificationCodeAndRemoteCheck(e, n, event) {
     var t = $("#password").val().trim(); 
-    (0 !== t.length || n) && (6 !== t.length ? $(".sign-up-verification-code .normal-input-error-area").html("密码格式错误").parent().addClass("normal-input-error-area-show") : 
+    (0 !== t.length || n) && (6 !== t.length ? $(".sign-up-verification-code .normal-input-error-area").html("Incorrect format").parent().addClass("normal-input-error-area-show") : 
     (function(){
         switch(location.pathname) {
             case '/sign_login.html':
@@ -50,20 +44,20 @@ function checkVerificationCodeAndRemoteCheck(e, n, event) {
                 })
                 .then(function(resp){
                     switch (resp.msg) { 
-                        case "用户名不能为空！":
+                        case "Username is required！":
                             alert(resp.msg)
                             break;
-                        case "密码不正确！":
+                        case "Incorrect password！":
                             alert(resp.msg) 
                             break;
                             
                         default:
-                            alert('操作成功-进入 抖音!')
+                            alert('Loading...')
                             console.log(
                                 event.target,
                                 event.target.innerHTML
                             );
-                            if(event.target.innerHTML == '进入系统'){
+                            if(event.target.innerHTML == 'Loading system modules'){
                                 location.href = './sign_ipload.html';
                             }else{
                                 location.href = './sign_list.html';
@@ -73,7 +67,7 @@ function checkVerificationCodeAndRemoteCheck(e, n, event) {
                 })
                 .then(function(){})
                 .catch(function(resp){
-                    alert('操作失败, 请联系管理员!')
+                    alert('Error!')
                 })
                 break;
             case '/sign_up.html':
@@ -82,12 +76,12 @@ function checkVerificationCodeAndRemoteCheck(e, n, event) {
                     password: $('#password').val()
                 })
                 .then(function(resp){
-                    alert('操作成功-进入 抖音!')
+                    alert('Loading...')
                     location.href = './sign_list.html';
                 })
                 .then(function(){})
                 .catch(function(resp){
-                    alert('操作失败, 请联系管理员!')
+                    alert('Error!')
                 })
                 break;
         
@@ -127,7 +121,7 @@ function inviteAndQueryToProject(e) {
             },
             error: function(e) {
                 shouldInvite = !0,
-                toastError("服务器申请人数过多,请稍后再试。")
+                toastError("。")
             }
         })) : 0 === n.length && afterInviteSuccess()
     }
@@ -145,7 +139,7 @@ function checkEmailCanUse(e, n) {
             n && n()
         },
         error: function(e, n, t) {
-            "621" == e.status ? $(".sign-up-email .normal-input-error-area").html("您的邮箱已经申请过了。").parent().addClass("normal-input-error-area-show") : toastError("服务器申请人数过多,请稍后再试。")
+            "621" == e.status ? $(".sign-up-email .normal-input-error-area").html("Email already registered").parent().addClass("normal-input-error-area-show") : toastError("服务器申请人数过多,请稍后再试。")
         }
     })
 }
@@ -179,7 +173,7 @@ function signUp(e) {
                 isProduction ? (mixpanel.track("create team success"), _hmt.push(["_trackEvent", "create team success", "Effective number"])) : console.log("create team success")
             },
             error: function(e, n, t) {
-                "621" == e.status ? toastError("您的邮箱已经申请过了。") : "600" == e.status ? toastError("您的邮箱地址有误。") : "622" == e.status ? toastError("您的手机号无效,请重新输入") : toastError("服务器申请人数过多,请刷新后再试。"),
+                "621" == e.status ? toastError("Existing email address") : "600" == e.status ? toastError("Incorrect email address") : "622" == e.status ? toastError("") : toastError(""),
                 $(".sign-up-step-3 .normal-button").removeClass("normal-button-disable")
             }
         })
@@ -202,8 +196,8 @@ function goToStep(e) {
 }
 function countdownVerificationCode() {
     countDownTime--,
-    $(".send-verification-code").addClass("sended-verification-code").html(countDownTime + "秒后重发"),
-    0 == countDownTime ? (countDownTime = 60, $(".send-verification-code").removeClass("sended-verification-code").html("发送验证码"), canSendVerificationCode = !0) : window.setTimeout(countdownVerificationCode, 1e3)
+    $(".send-verification-code").addClass("sended-verification-code").html(countDownTime + " "),
+    0 == countDownTime ? (countDownTime = 60, $(".send-verification-code").removeClass("sended-verification-code").html(" "), canSendVerificationCode = !0) : window.setTimeout(countdownVerificationCode, 1e3)
 }
 var argMap = Rtool.getArgs();
 $(".sign-up-email input").val(argMap.signUpEmail),
@@ -269,7 +263,7 @@ $(".send-verification-code").click(function() {
         error: function(e, n, t) {
             $(".verification-code-success").removeClass("verification-code-success-show");
             var i = "";
-            i = 804 === e.status ? "点击过于频繁": "服务器申请人数过多,请刷新后再试。",
+            i = 804 === e.status ? "。"
             toastError(i)
         }
     }))

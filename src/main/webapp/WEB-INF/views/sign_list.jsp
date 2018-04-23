@@ -144,42 +144,33 @@
 		<div class="top-nav normal-width">
 			<a class="top-nav-logo" href=""></a>
 			<div class="top-hamburger"></div>
-			<div class="backBtn1"><a href="${root }/toUpload"  class="">去上传</a></div><br>
-			<div class="backBtn"><a href="${root }/login/logout"  class="">退出</a></div>
+			<div class="backBtn1"><a href="${root }/toUpload"  class="">Upload</a></div><br>
+			<div class="backBtn"><a href="${root }/login/logout"  class="">Exit</a></div>
 		</div>
 		<div class="price-top tilt-component">
 			<div class="tilt-triangle tilt-triangle-bottom-left"></div>
 		</div>
 		<div class="price-characteristic normal-width">
 			<div id="safe" class="">
-				<div class="price-characteristic-title tc">视频列表</div>
+				<div class="price-characteristic-title tc">Videos</div>
 				<ul id="main-list">
-					<!-- 
-						JS each
-					 -->
-					<!-- <li class="price-not-margin-right">
-						<div class="price-characteristic-img"><img src="images/demo.jpg" width="160" height="180" data-src2x="images/can_useX2-b9f7b5599b.png"></div>
-						<div class="price-characteristic-info tc mt10"><b>高可用性保证</b>
-							<div class="tj fix"><a class="l default-color" href="">点赞&nbsp;(<span class="default-color">0</span>人赞过)</a><a class="r default-color openGuestbook"
-								 href="javascript:void(0)">留言</a></div>
-						</div>
-					</li> -->
+					
 				</ul>
 			</div>
 		</div>
 
 		<div id="commentBox" class="commentBox normal-width dn btd">
 			<div class="rel mt10">
-				<h2>评论区</h2>
+				<h2>Comments</h2>
 				<div class="main-comment">
 					<input id="comment-text" type="text">
-					<button id="sendComment">发送评论</button>
-					<button id="closeComment">隐藏评论</button>
+					<button id="sendComment">Send</button>
+					<button id="closeComment">Hide</button>
 				</div>
 			</div>
 			<ul id="comment-list" class="mt10">
-				<li>嘿嘿哈哈</li>
-				<li>并没有什么啊</li>
+				<li>haha</li>
+				<li>okay</li>
 			</ul>
 		</div>
 </body>
@@ -198,7 +189,7 @@
             layer.open({
                 type: 1,
                 offset: 't',
-                title: '视频播放',
+                title: 'Play',
                 skin: 'layui-layer-rim', //加上边框
                 //area: ['900px', '600px'], //宽高
                 content: html
