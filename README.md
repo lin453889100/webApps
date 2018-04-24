@@ -20,15 +20,20 @@ Checkpoint 1:
 
 Finish the overall HTML/CSS design for the Website
 Coding for the login/register functionalities
+
 Checkpoint 2:
 
 Coding for Like/Comment functionalities
 Combine the code with the HTML/CSS
 Make sure it's running on the localshot
+
 Checkpoint 3:
 
-Able to upload the video
-Sorting function based on likes and comments of the videos
+Able to upload the video on the website
+After the upload, the homepage should be able to display the video
+Website homepage should be able to play the uploaded videos
+
+
 
 Project Justification - why is your project interesting?
 
