@@ -32,6 +32,8 @@ Checkpoint 3:
 Able to upload the video on the website
 After the upload, the homepage should be able to display the video
 Website homepage should be able to play the uploaded videos
+Adding MD5 for password security
+Fixed the failed message after the video has been uploaded
 
 
 
