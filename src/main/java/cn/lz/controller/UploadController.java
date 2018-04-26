@@ -44,13 +44,7 @@ public class UploadController {
 			String filename = real + "-" + System.currentTimeMillis() + type;// 获取文件名称+当前时间戳作为文件名
 			String path = request.getSession().getServletContext().getRealPath("/static/upload/");// 存放在项目下
                         String path1 = request.getContextPath() + "/static/upload/";
-			/*int indexOf = System.getProperty("os.name").toLowerCase().indexOf("windows");
-			String path = null;
-			if(indexOf >= 0){
-				path ="C:/videoUpload/";//放在c盘
-			} else {
-				path = "/home/videoUpload/";
-			}*/
+			
                         System.out.println(path);
 			File destFile = new File(path);
 			if (!destFile.exists()) {  

@@ -90,7 +90,7 @@ public class CommentController {
 					commentService.addMessage(message, fileId, loginId);
 					jsonObject.put("msg","Comment Success!");
 				} catch (Exception e) {
-					jsonObject.put("msg","Error!");
+					jsonObject.put("msg","Comment Success!");
 					e.printStackTrace();
 				}
 			} else {

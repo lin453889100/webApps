@@ -41,7 +41,7 @@ public class QueryController {
 	}
 	
 	/**
-	 * 查询留言（全部）
+
 	 * @return
 	 */
 	@RequestMapping("/allMessage")
